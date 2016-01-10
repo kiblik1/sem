@@ -8,6 +8,7 @@
  ol,ul{list-style:none}
  table{border-collapse:collapse;border-spacing:0}
  
+ /* Basic style of welcome page */
  body {text-align: center; font-family:sans-serif;}
  h1 {color: transparent; background: url('images/edgebox.png'); width: 528px; height: 348px; margin: 0 auto;}
  #queryLabel {display:none;}

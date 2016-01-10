@@ -44,7 +44,7 @@ $(document).ready(function(){
 
 });
 
-//Change layout of page to two comumns
+// Change layout of page to two comumns
 function changeLayout(){
     $("#query").css('float','left');
     $("#results").css('display','block');
@@ -53,9 +53,7 @@ function changeLayout(){
     $("h1").css('height',145);
 }
 
-/*
- * Flickr data processing
- */
+// Flickr data processing
 function processData(data){
     // Connection Error
     if (data.stat != "ok"){
@@ -79,9 +77,7 @@ function processData(data){
     }
 }
 
-/*
- * Get Flickr thumbnail
- */
+// Get Flickr thumbnail
 function getImageThumbnail(id){
     $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&jsoncallback=?",
     {
