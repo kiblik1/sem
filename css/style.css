@@ -8,20 +8,29 @@
  ol,ul{list-style:none}
  table{border-collapse:collapse;border-spacing:0}
  
- /* Basic style of a welcome page */
+ /* Basic style of the page */
  body {text-align: center; font-family:sans-serif;}
  h1 {color: transparent; background: url('images/edgebox.png'); width: 528px; height: 348px; margin: 0 auto;}
  #queryLabel {display:none;}
  #queryInput {font-size: 1.2em; width: 90%;}
  #querySubmit {font-size: 1.2em;}
+
+ #query{
+	width: 40%;
+	margin: 0 auto; 
+ }
  
+ #sorted, #byGPS {
+  font-size: 0; 
+ }
+ 
+ /* Placeholder for results or error messages */
  #results, #messenger {
 	display:none;
 	width: 60%;
 	float: right; 
  }
  
- /* Palceholder for error messages */
  #messenger{
 	position: fixed;
 	top: 0;
@@ -42,12 +51,4 @@
 	display: block;
 	font-size: 3em
  }
- 
- #query{
-	width: 40%;
-	margin: 0 auto; 
- }
- 
- #sorted, #byAuthor, #bySize, #byDate, #byGPS {
-  font-size: 0; 
- }
+
