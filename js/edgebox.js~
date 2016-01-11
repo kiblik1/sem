@@ -144,32 +144,6 @@ function getImageThumbnail(id, selected_size){
 }
 
 /**
- * Sort images by resolution
- * Separate API call is needed to get the location
- * @param {string} id - ID of the picture
- */
-function sortImageSize(id){
-    $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&jsoncallback=?",
-    {
-        api_key: FLICKR_API_KEY,
-        photo_id: id,
-        format: "json"
-    },
-    function(id){
-        return function(image){
-            variants = image.sizes.size;
-            biggest = variants[variants.length - 1];
-            size_score = parseInt(biggest['width']) * parseInt(biggest['height']);  
-                                
-            $('.'+id).attr("size", size_score);
-            copyToContainer(size_container, id);
-            sortContainer(size_container, "size", size_container.children('.'+id), size_score, true); 
-            
-        }
-    }(id));
-}
-
-/**
  * Sort images by geological information (distance from given point)
  * Separate API call is needed to get the location
  * @param {string} id - ID of the picture
@@ -229,6 +203,32 @@ function sortImageAuthor(id, owner){
             $('.'+id).attr("user", score);
             copyToContainer(author_container, id);
             sortContainer(author_container, "user", author_container.children('.'+id), score, false);
+        }
+    }(id));
+}
+
+/**
+ * Sort images by resolution
+ * Separate API call is needed to get the location
+ * @param {string} id - ID of the picture
+ */
+function sortImageSize(id){
+    $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&jsoncallback=?",
+    {
+        api_key: FLICKR_API_KEY,
+        photo_id: id,
+        format: "json"
+    },
+    function(id){
+        return function(image){
+            variants = image.sizes.size;
+            biggest = variants[variants.length - 1];
+            size_score = parseInt(biggest['width']) * parseInt(biggest['height']);  
+                                
+            $('.'+id).attr("size", size_score);
+            copyToContainer(size_container, id);
+            sortContainer(size_container, "size", size_container.children('.'+id), size_score, true); 
+            
         }
     }(id));
 }
